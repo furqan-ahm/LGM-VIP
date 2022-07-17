@@ -1,62 +1,28 @@
 import React, {useState} from 'react'
-import Todo from './Todo'
 import TodoForm from './TodoForm'
+import TodoTile from './TodoTile'
 
 
-function TodoList() {
+function TodoList({todos, completeTodo, removeTodo, updateTodo}) {
   
-  const [todos, setTodos] = useState([])
+  const [edit, setEdit] = useState({
+    id: null,
+    value: ''
+  });
 
-  const addTodo = todo => {
-    if(!todo.text){
-        return
-    }
+  const submitUpdate = value => {
+    updateTodo(edit.id, value);
+    setEdit({
+      id: null,
+      value: ''
+    });
+  };
 
-    const newTodos=[todo, ...todos];
-
-    setTodos(newTodos);
-    console.log(...todos);
+  if (edit.id||edit.id===0) {
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
 
-  const updateTodo = (todoId, newValue) => {
-    if(!newValue.text){
-      return
-    }
-
-    setTodos(prev=>prev.map(item=>(item.id===todoId ? newValue : item)))
-  }
-
-
-  const removeTodo=id=>{
-    const remainingTodos=[...todos].filter(todo=>todo.id!==id);
-
-    setTodos(remainingTodos)
-  }
-
-
-  const completeTodo= id => {
-    let updatedTodos = todos.map(todo=>{
-        if(todo.id===id){
-            todo.isComplete=!todo.isComplete;
-        }
-        return todo;
-    })
-
-    setTodos(updatedTodos)
-  }
-
-  return (
-    <div>
-        <h1 style={{textAlign:'center'}}>What's the plan for today?</h1>
-        <TodoForm onSubmit={addTodo}/>
-        <Todo
-          todos={todos}
-          completeTodo={completeTodo}
-          removeTodo={removeTodo}
-          updateTodo={updateTodo}
-        />
-    </div>
-  )
+  return todos.map((todo, index) => TodoTile({todo, index, setEdit, removeTodo, completeTodo}));
 }
 
 export default TodoList
