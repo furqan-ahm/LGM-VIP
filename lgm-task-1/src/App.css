@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(
+      90deg,
+      rgb(178, 8, 212) -20%,
+      rgb(4, 100, 209) 100%
+    );
+  }
+  .todo-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  .rounded-container{
+    flex-direction: row;
+    border-radius: 25px;
+    justify-content: center;
+    width: 70%;
+    padding: 20px;
+    background: #161a2b;
+    text-align: center;
+    margin: 50px auto;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 32px;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+  
+  .todo-form {
+  }
+  
+  .todo-input {
+    padding: 18px 32px 18px 16px;
+    border-radius: 20px 0 0 20px;
+    border: 2px solid #5d0cff;
+    outline: none;
+    width: 70%;
+    background: transparent;
+    color: #fff;
+  }
+  
+  .todo-input::placeholder {
+    color: #e2e2e2;
+  }
+  
+  .todo-button {
+    padding: 20px;
+    border: none;
+    border-radius: 0px 20px 20px 0;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(
+      90deg,
+      rgba(93, 12, 255, 1) 0%,
+      rgba(155, 0, 250, 1) 100%
+    );
+    color: #fff;
+    text-transform: capitalize;
+  }
+  
+  .todo-input.edit {
+    border: 2px solid #149fff;
+    margin-top: 10px;
+  }
+  
+  .todo-button.edit {
+    margin-top: 10px;
+    background: linear-gradient(
+      90deg,
+      rgba(20, 159, 255, 1) 0%,
+      rgba(17, 122, 255, 1) 100%
+    );
+    padding: 20px;
+  }
+  
+  .todo-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  
+  .todo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: 4px auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #fff;
+    background: linear-gradient(
+      90deg,
+      rgb(17, 81, 255) 50%,
+      rgb(43, 217, 248) 100%
+    );
+  
+    padding: 16px;
+    border-radius: 20px;
+    width: 90%;
+  }
+  
+
+  .icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .delete-icon {
+    margin-right: 5px;
+    color: #fff;
+  }
+  
+  .edit-icon {
+    color: #fff;
+  }
